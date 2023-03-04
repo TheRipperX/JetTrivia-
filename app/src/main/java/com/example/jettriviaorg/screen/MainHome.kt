@@ -77,7 +77,7 @@ fun MainHome(viewModel: AppViewModel) {
                     QuestionMain(responseJson = jsonIndexMain){
                         if (it){
                             jsonIndex++
-                            progressAdd += 0.0001f
+                            progressAdd += 0.001f
                         }
                         else{
                             if (jsonIndex > 0)
