@@ -6,4 +6,4 @@ const val TIME_OUT = 60L
 
 const val dataStoreApp = "datastore_app_setting"
 const val dataQuestion = "data_question_count"
-const val dataProgress = "data+counter_progress"
+const val dataProgress = "data_counter_progress"

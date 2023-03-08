@@ -12,17 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jettriviaorg.screen.MainHome
 import com.example.jettriviaorg.ui.theme.JetTriviaOrgTheme
+import com.example.jettriviaorg.utils.DataStoreApp
 import com.example.jettriviaorg.viewmodel.AppViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-
+    @Inject
+    lateinit var dataStoreApp: DataStoreApp
 
     private val viewModelApp: AppViewModel by viewModels()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     //viewModelApp.getAllViewModel()
-                    Main(viewModelApp)
+                    Main(viewModelApp, dataStoreApp)
                 }
             }
         }
@@ -41,10 +42,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Main(viewModel: AppViewModel) {
+fun Main(viewModel: AppViewModel, storeApp: DataStoreApp) {
 
     Surface(modifier = Modifier.fillMaxSize()) {
-        MainHome(viewModel)
+        MainHome(viewModel, storeApp)
     }
 
 }
